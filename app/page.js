@@ -1,7 +1,7 @@
-import Quote from "./components/quote"
+import Quote from "./components/jokes"
 
 async function getData() {
-	const res = await fetch('https://animechan.xyz/api/random')
+	const res = await fetch('https://official-joke-api.appspot.com/jokes/random')
 
 	if (!res.ok) {
 		throw new Error('Failed to fetch data')
@@ -16,9 +16,8 @@ export default async function Home() {
 	return (
 		<>
 			<Quote
-				anime={data.anime}
-				character={data.character}
-				quote={data.quote}
+				setup={data.setup}
+				punchline={data.punchline}
 			/>
 		</>
 	)
