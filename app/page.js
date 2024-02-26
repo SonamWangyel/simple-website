@@ -1,14 +1,7 @@
-const BASE_URL = "https://api.coinranking.com/v2/coin/Qwsogvtv82FCd"
-const API_KEY = process.env.API_KEY
-
+import Quote from "./components/quote"
 
 async function getData() {
-	const res = await fetch(BASE_URL, {
-		headers : {
-			'Content-Type': 'application/json',
-    	'x-access-token': API_KEY,
-		}
-	})
+	const res = await fetch('https://animechan.xyz/api/random')
 
 	if (!res.ok) {
 		throw new Error('Failed to fetch data')
@@ -22,6 +15,11 @@ export default async function Home() {
 	console.log(data)
 	return (
 		<>
+			<Quote
+				anime={data.anime}
+				character={data.character}
+				quote={data.quote}
+			/>
 		</>
 	)
 }
