@@ -42,16 +42,17 @@ export default function Home() {
             </p>
           ))}
         </div>
-        <div className="text-8xl text-cyan-400 mb-8 animate-pulse">
+        <div className="text-8xl text-rose-500 mb-8 animate-pulse">
           {text}
         </div>
         <div className="flex items-center justify-center">
-          <input
-            className="text-2xl text-black border border-gray-300 p-2 mr-2 rounded"
-            type="text"
-            value={text}
-            onChange={(event) => setText(event.target.value)}
-          />
+		<input
+  			className="text-2xl text-white border border-gray-300 p-2 mr-2 rounded bg-white bg-opacity-50 font-bold"
+			type="text"
+			value={text}
+			onChange={(event) => setText(event.target.value)}
+		/>
+
           <button
             className="text-2xl font-bold bg-green-500 text-white p-2 rounded"
             onClick={handleSaveText}
