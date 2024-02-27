@@ -54,13 +54,13 @@ export default function Home() {
 		/>
 
           <button
-            className="text-2xl font-bold bg-green-500 text-white p-2 rounded"
+            className="text-2xl font-bold bg-green-500 text-white p-2 rounded hover:bg-sky-700"
             onClick={handleSaveText}
           >
             Save Text
           </button>
           <button
-            className="text-2xl font-bold bg-red-500 text-white p-2 ml-2 rounded"
+            className="text-2xl font-bold bg-red-500 text-white p-2 ml-2 rounded hover:bg-fuchsia-600 "
             onClick={handleClearText}
           >
             Clear Text
