@@ -1,21 +1,21 @@
 "use client"
-import { useState } from "react";
+import { useState } from "react"
 
 export default function Home() {
-  const [quotes, setQuotes] = useState([]);
-  const [text, setText] = useState("Type something...");
-  const [clickCount, setClickCount] = useState(0);
+  const [quotes, setQuotes] = useState([])
+  const [text, setText] = useState("Type something...")
+  const [clickCount, setClickCount] = useState(0)
 
   const handleSaveText = () => {
-    const newQuotes = quotes.concat([text]);
-    setQuotes(newQuotes);
-    setText("");
-    setClickCount((prevCount) => prevCount + 1);
-  };
+    const newQuotes = quotes.concat([text])
+    setQuotes(newQuotes)
+    setText("")
+    setClickCount((prevCount) => prevCount + 1)
+  }
 
   const handleClearText = () => {
-    setQuotes([]);
-    setText("Hi");
+    setQuotes([])
+    setText("Hi")
   };
 
   const handleResetClickCounter = () => {
@@ -26,9 +26,9 @@ export default function Home() {
     if (clickCount < 5) {
       return "text-green-500";
     } else if (clickCount < 10) {
-      return "text-yellow-500";
+      return "text-yellow-500"
     } else {
-      return "text-red-500";
+      return "text-red-500"
     }
   };
 
