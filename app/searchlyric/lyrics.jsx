@@ -18,7 +18,7 @@ const Lyrics = () => {
 
   return (
     <div>
-      <h2 className='text-4xl  text-center text-blue-400 animate-pulse bottom-1.5'>
+      <h2 className='text-2xl  text-center text-blue-400 animate-pulse bottom-1.5'>
         Lyrics Finder
       </h2>
       <input className='text-black border-4 border-red-300 '
@@ -40,8 +40,8 @@ const Lyrics = () => {
         Get Lyrics
       </button>
       <div>
-        <h3 className='text-center bottom-5'>Lyrics</h3>
-        <pre className="text-amber-400 ">{lyrics}</pre>
+        <h3 className='text-center bottom-5 text-2xl'>Lyrics</h3>
+        <pre className="text-amber-400 text-center">{lyrics}</pre>
       </div>
     </div>
   );
