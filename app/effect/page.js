@@ -12,14 +12,14 @@ export default function Effect() {
 
 	return (
 		<>
-			<p className="text-white text-4xl">{text}</p>
+			<p className="text-white text-4xl ">{text}</p>
 			<input
 				className="text-black text-4xl"
 				type="text"
 				onChange={(event) => setText(event.target.value)}
 			/>
 			<button
-				className="border-2 border-white text-white text-2xl px-2"
+				className="border-2 border-white text-white text-2xl"
 				onClick={() => setNumberOfClicks(numberOfClicks + 1)}
 			>
 				I have been clicked {numberOfClicks} times.

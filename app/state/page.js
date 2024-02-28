@@ -8,7 +8,7 @@ export default function State() {
 	return (
 		<div>
 			<p className="text-4xl">{word}</p>
-			<input
+			<input className="text-black text-2xl"
 				// onChange={(event) => {
 				// 	console.log("BEFORE: " + word)
 				// 	word = event.target.value
