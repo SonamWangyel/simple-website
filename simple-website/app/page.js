@@ -1,45 +1,84 @@
-import Article from "./components/article"
-
-const articles = [
-	{
-		articleTitle: 'Sherab says "Good Morning, Free Money For Everyone!"',
-		articleParagraphs: [
-			"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque faucibus magna quis odio congue dignissim. Donec placerat dapibus varius. Aenean vel augue eget neque hendrerit faucibus. Curabitur gravida tristique lectus ac varius. Fusce turpis urna, luctus vel gravida sit amet, consequat eu turpis. Praesent ut rutrum massa. Donec luctus, leo eget viverra scelerisque, lectus velit rhoncus justo, eu sollicitudin purus lectus malesuada leo. Morbi varius bibendum commodo. Duis dapibus dolor sagittis orci dignissim, eu rutrum ex euismod.",
-			"Sed sagittis ipsum nisl, a placerat libero auctor ac. Mauris vulputate iaculis felis nec varius. Etiam nunc diam, efficitur vitae luctus eu, scelerisque vel elit. Phasellus id diam porttitor, suscipit dui eget, placerat libero. Integer imperdiet id nisl in pretium. Fusce hendrerit justo a leo viverra, eu tempor augue finibus. In hac habitasse platea dictumst.",
-			"Etiam id eros varius, facilisis ante sit amet, egestas tortor. Nullam volutpat pharetra metus vel luctus. Integer et lectus dolor. Vestibulum fringilla rhoncus dignissim. Duis in diam ut neque vehicula lobortis a sed sem. Donec a felis elementum, consequat arcu a, eleifend nunc. Nunc lacinia nisl lacus, sit amet dignissim neque malesuada a. Proin imperdiet diam ut velit sollicitudin semper. Curabitur accumsan, quam ut feugiat aliquam, tortor mauris tincidunt turpis, vel pretium purus mi vel diam. Vestibulum faucibus enim accumsan nulla porttitor, eu gravida risus laoreet. Nullam laoreet nisl sit amet elit fermentum sodales."
-		]
-	},
-	{
-		articleTitle: "Scientists say water falling from sky is normal",
-		articleParagraphs: [
-			"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque faucibus magna quis odio congue dignissim. Donec placerat dapibus varius. Aenean vel augue eget neque hendrerit faucibus. Curabitur gravida tristique lectus ac varius. Fusce turpis urna, luctus vel gravida sit amet, consequat eu turpis. Praesent ut rutrum massa. Donec luctus, leo eget viverra scelerisque, lectus velit rhoncus justo, eu sollicitudin purus lectus malesuada leo. Morbi varius bibendum commodo. Duis dapibus dolor sagittis orci dignissim, eu rutrum ex euismod.",
-			"Sed sagittis ipsum nisl, a placerat libero auctor ac. Mauris vulputate iaculis felis nec varius. Etiam nunc diam, efficitur vitae luctus eu, scelerisque vel elit. Phasellus id diam porttitor, suscipit dui eget, placerat libero. Integer imperdiet id nisl in pretium. Fusce hendrerit justo a leo viverra, eu tempor augue finibus. In hac habitasse platea dictumst.",
-			"Etiam id eros varius, facilisis ante sit amet, egestas tortor. Nullam volutpat pharetra metus vel luctus. Integer et lectus dolor. Vestibulum fringilla rhoncus dignissim. Duis in diam ut neque vehicula lobortis a sed sem. Donec a felis elementum, consequat arcu a, eleifend nunc. Nunc lacinia nisl lacus, sit amet dignissim neque malesuada a. Proin imperdiet diam ut velit sollicitudin semper. Curabitur accumsan, quam ut feugiat aliquam, tortor mauris tincidunt turpis, vel pretium purus mi vel diam. Vestibulum faucibus enim accumsan nulla porttitor, eu gravida risus laoreet. Nullam laoreet nisl sit amet elit fermentum sodales."
-
-		]
-	},
-	{
-		articleTitle: "Eggs come from certain animals",
-		articleParagraphs: [
-			"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque faucibus magna quis odio congue dignissim. Donec placerat dapibus varius. Aenean vel augue eget neque hendrerit faucibus. Curabitur gravida tristique lectus ac varius. Fusce turpis urna, luctus vel gravida sit amet, consequat eu turpis. Praesent ut rutrum massa. Donec luctus, leo eget viverra scelerisque, lectus velit rhoncus justo, eu sollicitudin purus lectus malesuada leo. Morbi varius bibendum commodo. Duis dapibus dolor sagittis orci dignissim, eu rutrum ex euismod.",
-			"Sed sagittis ipsum nisl, a placerat libero auctor ac. Mauris vulputate iaculis felis nec varius. Etiam nunc diam, efficitur vitae luctus eu, scelerisque vel elit. Phasellus id diam porttitor, suscipit dui eget, placerat libero. Integer imperdiet id nisl in pretium. Fusce hendrerit justo a leo viverra, eu tempor augue finibus. In hac habitasse platea dictumst.",
-			"Etiam id eros varius, facilisis ante sit amet, egestas tortor. Nullam volutpat pharetra metus vel luctus. Integer et lectus dolor. Vestibulum fringilla rhoncus dignissim. Duis in diam ut neque vehicula lobortis a sed sem. Donec a felis elementum, consequat arcu a, eleifend nunc. Nunc lacinia nisl lacus, sit amet dignissim neque malesuada a. Proin imperdiet diam ut velit sollicitudin semper. Curabitur accumsan, quam ut feugiat aliquam, tortor mauris tincidunt turpis, vel pretium purus mi vel diam. Vestibulum faucibus enim accumsan nulla porttitor, eu gravida risus laoreet. Nullam laoreet nisl sit amet elit fermentum sodales."
-
-		]
-	}
-]
-
+"use client"
+import { useState } from "react"
+import Link from "next/link"
 export default function Home() {
-	return (
-		<>
-			{articles.map((article) => {
-				return (
-					<Article
-						title={article.articleTitle}
-						paragraphs={article.articleParagraphs}
-					/>
-				)
-			})}
-		</>
-	)
+  const [quotes, setQuotes] = useState([])
+  const [text, setText] = useState("Type something...")
+  const [clickCount, setClickCount] = useState(0)
+  const handleSaveText = () => {
+    const newQuotes = quotes.concat([text])
+    setQuotes(newQuotes)
+    setText("")
+    setClickCount((prevCount) => prevCount + 1)
+  }
+
+  const handleClearText = () => {
+    setQuotes([])
+    setText("Hi")
+  };
+
+  const handleResetClickCounter = () => {
+    setClickCount(0);
+  };
+
+  const getClickCounterColor = () => {
+    if (clickCount < 5) {
+      return "text-green-500";
+    } else if (clickCount < 10) {
+      return "text-yellow-500"
+    } else {
+      return "text-red-500"
+    }
+  };
+
+  return (
+    <div className="bg-cover bg-my-bg-image w-full h-screen flex items-center justify-center">
+      <div className="text-white text-center">
+        <div className="text-4xl font-bold mb-4">
+          {quotes.map((quote, index) => (
+            <p key={index} className="mb-2">
+              {quote}
+            </p>
+          ))}
+        </div>
+        <Link href={'/crypto'} className="text-2xl text-white border border-gray-300 p-2 mr-2 rounded bg-white bg-opacity-50 font-bold" >
+          Crypto Currency value
+        </Link>
+      
+        <div className="text-8xl text-rose-500 mb-8 animate-pulse">
+          {text}
+        </div>
+        <div className="flex items-center justify-center">
+		<input
+  			className="text-2xl text-white border border-gray-300 p-2 mr-2 rounded bg-white bg-opacity-50 font-bold"
+			type="text"
+			value={text}
+			onChange={(event) => setText(event.target.value)}
+		/>
+
+          <button
+            className="text-2xl font-bold bg-green-500 text-white p-2 rounded hover:bg-sky-700"
+            onClick={handleSaveText}
+          >
+            Save Text
+          </button>
+          <button
+            className="text-2xl font-bold bg-red-500 text-white p-2 ml-2 rounded hover:bg-fuchsia-600 "
+            onClick={handleClearText}
+          >
+            Clear Text
+          </button>
+        </div>
+        <div className={`text-2xl mt-4 ${getClickCounterColor()}`}>
+          Click Count: {clickCount}
+        </div>
+        <button
+          className="text-2xl font-bold bg-blue-500 text-white p-2 mt-2 rounded"
+          onClick={handleResetClickCounter}
+        >
+          Reset Click Counter
+        </button>
+      </div>
+    </div>
+  );
 }
