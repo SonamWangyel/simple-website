@@ -1,6 +1,6 @@
 "use client"
 import { useState } from "react"
-
+import Link from "next/link"
 export default function Home() {
   const [quotes, setQuotes] = useState([])
   const [text, setText] = useState("Type something...")
@@ -59,6 +59,10 @@ export default function Home() {
           >
             Save Text
           </button>
+          <Link href="/crypto" className="text-2xl font-bold bg-red-500 text-white p-2 ml-2 rounded hover:bg-fuchsia-600 ">
+            Crypto Currency value
+          </Link>
+
           <button
             className="text-2xl font-bold bg-red-500 text-white p-2 ml-2 rounded hover:bg-fuchsia-600 "
             onClick={handleClearText}
