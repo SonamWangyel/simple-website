@@ -18,14 +18,16 @@ const Lyrics = () => {
 
   return (
     <div>
-      <h2 className='text-4xl '>Lyrics Finder</h2>
-      <input className='text-black border-4 border-red-300 flex items-center justify-center'
+      <h2 className='text-4xl  text-center text-blue-400 animate-pulse bottom-1.5'>
+        Lyrics Finder
+      </h2>
+      <input className='text-black border-4 border-red-300 '
         type="text"
         placeholder="Artist"
         value={artist}
         onChange={(e) => setArtist(e.target.value)}
       />
-      <input className='text-black border-4 border-red-300 flex items-center justify-center'
+      <input className='text-black border-4 border-red-300 text-right '
         type="text"
         placeholder="Song Title"
         value={title}
@@ -38,8 +40,8 @@ const Lyrics = () => {
         Get Lyrics
       </button>
       <div>
-        <h3>Lyrics</h3>
-        <pre className="text-amber-400 text-center">{lyrics}</pre>
+        <h3 className='text-center bottom-5'>Lyrics</h3>
+        <pre className="text-amber-400 ">{lyrics}</pre>
       </div>
     </div>
   );
